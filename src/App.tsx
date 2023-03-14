@@ -58,6 +58,7 @@ function App() {
             setTasks({...tasks});
         }
     }
+
     function changeTaskTitle(id: string, newTitle: string, todolistId: string) {
         //достанем нужный массив по todolistId:
         let todolistTasks = tasks[todolistId];
@@ -79,6 +80,7 @@ function App() {
         // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         setTasks({...tasks});
     }
+
     function changeTodolistTitle(id: string, title: string) {
         // найдём нужный todolist
         const todolist = todolists.find(tl => tl.id === id);
@@ -120,20 +122,23 @@ function App() {
 
     return (
         <div className="App">
-            <AppBar position='static'>
-                <Toolbar>
-                    <IconButton edge='start' color='inherit' aria-label='menu'>
+            <AppBar position='static' color='secondary' sx={{opacity: '80%'}}>
+                <Toolbar style={{display: 'flex', justifyContent: 'space-between'}}>
+                    <IconButton edge='start'
+                                color='inherit'
+                                aria-label='menu'
+                    >
                         <Menu/>
                     </IconButton>
-                    <Typography variant='h6'>
+                    <Typography variant='h6' fontWeight='bold'>
                         Todolist
                     </Typography>
                     <Button color='inherit'>Login</Button>
                 </Toolbar>
             </AppBar>
             <Container fixed>
-                <Grid container style={{padding: '20px'}}>
-                    <AddItemForm addItem={addTodolist} />
+                <Grid container style={{padding: '20px', justifyContent: 'center'}}>
+                    <AddItemForm addItem={addTodolist}/>
                 </Grid>
                 <Grid container spacing={3}>
                     {
@@ -149,7 +154,15 @@ function App() {
                             }
 
                             return <Grid item>
-                                <Paper style={{padding: '10px'}}>
+                                <Paper style={{
+                                    padding: '10px',
+                                    borderWidth: '1px',
+                                    borderStyle: 'solid',
+                                    borderColor: 'rgba(156, 39, 176, 0.4)',
+                                    borderRadius: '15px',
+                                    background: 'rgba(156, 39, 176, 0.05)'
+                                }}
+                                       elevation={10}>
                                     <Todolist
                                         key={tl.id}
                                         id={tl.id}

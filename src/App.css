@@ -23,4 +23,7 @@
 /*.is-done {*/
 /*  opacity: 0.5;*/
 /*}*/
-
+.App {
+    height: 100vh;
+    background: rgba(156, 39, 176, 0.1);
+}

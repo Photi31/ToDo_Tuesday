@@ -38,6 +38,8 @@ export function AddItemForm(props: AddItemFormPropsType) {
         {/*       className={error ? "error" : ""}*/}
         {/*/>*/}
         <TextField variant='outlined'
+                   size='small'
+                   margin='normal'
                    value={title}
                    onChange={onChangeHandler}
                    onKeyPress={onKeyPressHandler}
@@ -52,9 +54,9 @@ export function AddItemForm(props: AddItemFormPropsType) {
         {/*        onClick={addItem}*/}
         {/*        style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}>+</Button>*/}
         <IconButton
-                color='primary'
+                color='primary' style={{marginTop: '15px'}}
                 onClick={addItem}>
-            <AddBox/>
+            <AddBox />
         </IconButton>
         {/*{error && <div className="error-message">{error}</div>}*/}
     </div>
